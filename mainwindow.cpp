@@ -128,6 +128,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         case Qt::Key_P:
             on_pushButton_29_clicked();
             break;
+        case Qt::Key_A:
+            on_pushButton_38_clicked();
+            break;
         default:
             break;
         }
@@ -334,6 +337,24 @@ void MainWindow::on_pushButton_26_clicked()
     shownow();
 }
 
+void MainWindow::on_pushButton_38_clicked()
+{
+    now.insert(now.end()-edit,"Abs(");
+    shownow();
+}
+
+void MainWindow::on_pushButton_36_clicked()
+{
+    now.insert(now.end()-edit,"cot(");
+    shownow();
+}
+
+void MainWindow::on_pushButton_37_clicked()
+{
+    now.insert(now.end()-edit,"acot(");
+    shownow();
+}
+
 void MainWindow::on_pushButton_6_clicked()//backspace键，根据变量edit的值决定删除的位置
 {
     if(!now.empty()&&edit<now.size()) now.erase(now.end()-edit-1,now.end()-edit),shownow();
@@ -366,6 +387,9 @@ void MainWindow::change(QString &cs)//将当前按下的键组成的数组转化
         else if(now[i]=="atan(") cs+="T(";
         else if(now[i]=="ln(") cs+="l(";
         else if(now[i]=="log(") cs+="L(";
+        else if(now[i]=="Abs(") cs+="A(";
+        else if(now[i]=="cot(") cs+="d(";
+        else if(now[i]=="acot(") cs+="D(";
         else cs+=now[i];
     }
 }
@@ -461,16 +485,15 @@ void MainWindow::on_pushButton_5_clicked()//等于“=”键按下
 bool MainWindow::cmp(QChar ch0,QChar ch1)//比较操作符优先级
 {
     if (ch0 == '(') return false;
-        if (ch1 == '+' || ch1 == '-')
-        {
-            QChar ch = s[cur - 2];
-            if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == 'g'||ch=='%') return false;
-            return true;
-        }
-        else if ((ch1 == '*' || ch1 == '/' || ch1 == '%') && (ch0 != '+'&&ch0 != '-')) return true;
-        else if ((ch1 == '^') && (ch0=='!'||ch0 == 's' || ch0 == 'c' || ch0 == 't' || ch0 == 'L' || ch0 == 'l' || ch0 == 'g')) return true;
-        else if (ch1 == '!'&&(ch0=='!'|| ch0 == 's' || ch0 == 'c' || ch0 == 't' || ch0 == 'L' || ch0 == 'l' || ch0 == 'g')) return true;
-        return false;
+    if (ch1 == '+' || ch1 == '-')
+    {
+        QChar ch = s[cur - 2];
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == 'g'||ch=='%') return false;
+        return true;
+    }
+    else if ((ch1 == '*' || ch1 == '/' || ch1 == '%') && (ch0 != '+'&&ch0 != '-')) return true;
+    else if ((ch1 == '^'||ch1=='!') && (ch0=='!'||ch0 == 's'||ch0=='S' || ch0 == 'c'||ch0=='C' || ch0 == 't'||ch0=='T' || ch0 == 'L' || ch0 == 'l' || ch0 == 'g'||ch0=='A'||ch0=='d'||ch0=='D')) return true;
+    return false;
 }
 
 double MainWindow::jie(double n)//阶乘
@@ -556,6 +579,20 @@ void MainWindow::cal(QChar ch)//根据ch确定计算过程
         res = atan(num2);
         if(isangle) res=res/P*180;
         break;
+    case 'd':
+        num2 = num.top(), num.pop();
+        if(isangle) num2*=(P/180);
+        res=1/tan(num2);
+        break;
+    case 'D':
+        num2 = num.top(), num.pop();
+        res=atan(1/num2);
+        if(isangle) res=res/P*180;
+        break;
+    case 'A':
+        num2 = num.top(), num.pop();
+        res=fabs(num2);
+        break;
     case '^':
     case '*':
     case '/':
@@ -630,3 +667,4 @@ void MainWindow::on_checkBox_2_clicked()//切换角度制/弧度制
 {
     isangle=!isangle;
 }
+

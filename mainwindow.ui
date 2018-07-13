@@ -434,10 +434,10 @@ font: 16pt &quot;Agency FB&quot;;</string>
    <widget class="QPushButton" name="pushButton_27">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>240</x>
       <y>140</y>
       <width>55</width>
-      <height>55</height>
+      <height>27</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -451,9 +451,9 @@ font: 16pt &quot;Agency FB&quot;;</string>
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>140</y>
+      <y>170</y>
       <width>55</width>
-      <height>55</height>
+      <height>27</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -517,7 +517,7 @@ font: 16pt &quot;Agency FB&quot;;</string>
       <x>0</x>
       <y>0</y>
       <width>295</width>
-      <height>60</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -598,10 +598,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QTextBrowser" name="textBrowser_2">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>59</y>
-      <width>145</width>
-      <height>51</height>
+      <x>120</x>
+      <y>60</y>
+      <width>175</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -667,6 +667,54 @@ p, li { white-space: pre-wrap; }
      <string>Angle</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_36">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>140</y>
+      <width>55</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+    </property>
+    <property name="text">
+     <string>cot</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_37">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>170</y>
+      <width>55</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+    </property>
+    <property name="text">
+     <string>acot</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_38">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>110</y>
+      <width>55</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+    </property>
+    <property name="text">
+     <string>abs</string>
+    </property>
+   </widget>
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton_3</zorder>
@@ -706,6 +754,9 @@ p, li { white-space: pre-wrap; }
    <zorder>textBrowser_2</zorder>
    <zorder>checkBox</zorder>
    <zorder>checkBox_2</zorder>
+   <zorder>pushButton_36</zorder>
+   <zorder>pushButton_37</zorder>
+   <zorder>pushButton_38</zorder>
    <zorder>listWidget</zorder>
    <zorder>listWidget_2</zorder>
   </widget>

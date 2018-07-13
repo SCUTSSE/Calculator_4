@@ -115,6 +115,12 @@ private slots:
 
     void on_checkBox_2_clicked();
 
+    void on_pushButton_38_clicked();
+
+    void on_pushButton_36_clicked();
+
+    void on_pushButton_37_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString s;//计算用字符串

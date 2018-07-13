@@ -25,7 +25,7 @@ MainWindow::~MainWindow()
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     int ch=event->key();
-    if(isedit&&ch==Qt::Key_Left)//左右移动光标
+    if(isedit&&ch==Qt::Key_Left)//左右移动光标，即更改edit的值
     {
         edit=(edit>=now.size())?edit:edit+1;
         shownow();

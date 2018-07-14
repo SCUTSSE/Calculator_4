@@ -135,13 +135,13 @@ private:
     QStack<double>num;
     QStack<QChar>op;
     QStack<int>pos;
-    int cur = 0;
+    QVector<QString>now;
 
     //历史记录
-    QVector<QString>now;
     QVector<QVector<QString>>now_his;
 
     //一些变量
+    int cur = 0;
     bool clicked=0;
     unsigned int edit=0;
     bool isedit=false;

@@ -629,7 +629,8 @@ void MainWindow::on_listWidget_2_clicked(const QModelIndex &index)
 {
     edit=0;
     QString temp=ui->listWidget_2->item(index.row())->text();
-    now.push_back(temp);
+    int l=temp.length();
+    for(int i=0;i<l;++i) now.push_back((QString)temp[i]);
     shownow();
     clicked=!clicked;
     ui->listWidget->close();
